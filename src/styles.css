@@ -40,6 +40,7 @@ input {
 button {
   border-radius: 10px;
   border-color: rgb(15, 241, 15);
+  cursor: pointer;
 }
 .gallery {
   width: 100%;
