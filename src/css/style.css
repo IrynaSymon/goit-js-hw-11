@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #cef8ca;
+  color: #212121;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.search-form {
+  padding: 20px;
+  background-color: rgb(18, 209, 18);
+  display: flex;
+  justify-content: center;
+}
+.search-form button,
+input {
+  font: inherit;
+}
+
+input {
+  width: 300px;
+  margin-right: 5px;
+  border-radius: 10px;
+  border-color: rgb(16, 235, 16);
+}
+button {
+  border-radius: 10px;
+  border-color: rgb(15, 241, 15);
+  cursor: pointer;
+}
+.gallery {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+img {
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.photo-card {
+  margin: 10px;
+  border: solid 1px #adadad;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-card:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.info {
+  padding: 4px 2px;
+  gap: 4px;
+}
+
+.info-item {
+  text-align: center;
+  font-size: 12px;
+}
+.load-more {
+  display: flex;
+  font-size: 16px;
+  border-color: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 300;
+  padding: 4px 2px;
+  background-color: rgb(27, 198, 27);
+  margin: auto;
+  margin-top: 20px;
+}
