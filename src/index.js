@@ -3,8 +3,7 @@ import { Notify } from "notiflix";
 import { PixabayAPI } from "./api-pixabay";
 import { renderMarcupForGallery } from "./photosGallery";
 import { searchForm, galleryList, loadMoreBtn } from "./refs"
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 const pixabayService = new PixabayAPI();
 
@@ -30,7 +29,6 @@ loadMoreBtn.classList.add("is-hidden");
       hits = 0;
       totalHits = 0;
 
-        evt.currentTarget.reset();
         const data = await pixabayService.fetchImage();
         if (data.hits.length === 0) {
             Notify.failure(
@@ -83,53 +81,3 @@ function scrollGallery() {
         behavior: "smooth",
     });
 }
-
-
-
-// searchForm.addEventListener("submit", handleSearchFormSubmit);
-// loadMoreBtn.addEventListener("click", handleLoadMoreBtnClick);
-// const simpleLightbox = new SimpleLightbox(".gallery a");
-//  let page = 1;
-// let query = "";
-// let pages = null;
-// let perPage = 40;
-
-// async function handleSearchFormSubmit(event) {
-//   event.preventDefault();
-//   galleryList.innerHTML = "";
-//   query = event.currentTarget.elements.searchQuery.value.trim();
-//   let page = 1;
-  
-//  fethPhotosGallery(query, page, perPage)
-//     .then(data => {
-//       if (data.totalHits === 0) {
-//         Notiflix.Notify.failure(
-//           'Sorry, there are no images matching your search query. Please try again.',
-//         );
-//       } else {
-//        renderMarcupForGallery(data.hits);
-//         simpleLightBox = new SimpleLightbox('.gallery a').refresh();
-//         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
-//       }
-//     })
-//     .catch(error => console.log(error))
-//     .finally(() => {
-//       searchForm.reset();
-//     });
-// }
-
-
-
-// });
-
-// // function scrollGallery() {
-// //     const { height: cardHeight } = document
-// //         .querySelector(".gallery")
-// //         .firstElementChild.getBoundingClientRect();
-
-// //     window.scrollBy({
-// //         top: cardHeight * 2,
-// //         behavior: "smooth",
-// //     });
-// // }
-export { galleryList, loadMoreBtn, searchForm };
