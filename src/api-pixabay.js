@@ -4,7 +4,7 @@ import { Notify } from 'notiflix';
 const API_KEY = "38625764-7015af45a4c628fe7e69462bb";
 const URL ="https://pixabay.com/api/";
 
-export  class PixabayAPI {
+export class PixabayAPI {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
