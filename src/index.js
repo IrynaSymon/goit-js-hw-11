@@ -14,7 +14,7 @@ loadMoreBtn.classList.add("is-hidden");
 async function handlerSearch(evt) {
     try {
         evt.preventDefault();
-       galleryList.innerHTML = ''
+        galleryList.innerHTML = '';
         const searchQuery = evt.currentTarget.elements.searchQuery.value.trim();
 
         if (!searchQuery) {
@@ -25,9 +25,9 @@ loadMoreBtn.classList.add("is-hidden");
         }
 
         pixabayService.query = searchQuery;
-        page = 1;
-      hits = 0;
-      totalHits = 0;
+       pixabayService.page = 1;
+       pixabayService.hits = 0;
+       pixabayService.totalHits = 0;
 
         const data = await pixabayService.fetchImage();
         if (data.hits.length === 0) {
