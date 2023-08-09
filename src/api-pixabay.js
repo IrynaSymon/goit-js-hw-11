@@ -1,12 +1,12 @@
 import axios from 'axios';
-
+import { Notify } from 'notiflix';
 export  class PixabayAPI {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    this.per_page = 40;
   }
-  async fetchImage() {
+    async fetchImage() {
+      
     const options = {
       method: 'GET',
       url: 'https://pixabay.com/api/',
@@ -16,13 +16,12 @@ export  class PixabayAPI {
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
-        page: `${this.page}`,
-        per_page: `${this.per_page}`,
+        page: this.page,
+        per_page: 40,
       },
-    };
+        };
     try {
       const response = await axios(options);
-
       const data = response.data;
       this.page += 1;
       this.totalHits = response.data.totalHits;
@@ -30,7 +29,10 @@ export  class PixabayAPI {
     } catch (error) {
       console.error(error);
     }
-  }
+    }
+    resetPage() {
+        this.page += 1;
+    }
 
   get query() {
     return this.searchQuery;
@@ -45,10 +47,12 @@ export  class PixabayAPI {
 // const API_KEY = "38625764-7015af45a4c628fe7e69462bb";
 // const URL ="https://pixabay.com/api/";
 
-// export class PixabayAPI {
+// export  class PixabayAPI {
 //     constructor() {
 //         this.searchQuery = '';
 //         this.page = 1;
+//         this.hits = 0;
+//         this.totalHitshits = 0;
 //     }
 
 //     async fetchImage() {
@@ -67,12 +71,11 @@ export  class PixabayAPI {
 //             const url = `${URL}`;
 //             const response = await axios.get(url, options);
 //             const data = await response.data;
-
 //             this.page += 1;
 //             this.totalHits = response.data.totalHits;
 //             return data;
 //         } catch (error) {
-//             Notify.failure("Failed to feth images .Please try again later.")
+//         Notify.failure("Failed to feth images .Please try again later.")
 //         }
 //     }
 

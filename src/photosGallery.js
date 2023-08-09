@@ -3,8 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { galleryList, loadMoreBtn, searchForm} from "./refs";
 export function renderMarcupForGallery(data) {
     const results = data.hits;
-    const markup = results
-        .map(
+    const markup = results.map(
             ({
                 webformatURL,
                 largeImageURL,
