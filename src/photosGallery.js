@@ -1,6 +1,10 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { galleryList, loadMoreBtn, searchForm} from "./refs";
+import { galleryList, loadMoreBtn, searchForm } from "./refs";
+ const simpleLightBox = new SimpleLightbox('.gallery a', {
+        captionsData: 'alt',
+        captionDelay: 250,
+    });
 export function renderMarcupForGallery(data) {
     const results = data.hits;
     const markup = results.map(
@@ -36,9 +40,6 @@ export function renderMarcupForGallery(data) {
 
     galleryList.insertAdjacentHTML('beforeend', markup);
 
-    const simpleLightBox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-    });
+   
     simpleLightBox.refresh();
 }
